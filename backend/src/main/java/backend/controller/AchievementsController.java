@@ -69,7 +69,23 @@ public class AchievementsController {
                 }).orElseThrow(() -> new AchievementsNotFoundException(id));
     }
 
-    
+    @DeleteMapping("/achievements/{id}")
+    public void delete(@PathVariable String id) {
+        achievementsRepository.deleteById(id);
+    }
+
+    @GetMapping("/achievements/images/{filename:.+}")
+    public ResponseEntity<Resource> getImage(@PathVariable String filename) {
+        try {
+            Path file = root.resolve(filename);
+            Resource resource = new UrlResource(file.toUri());
+            return ResponseEntity.ok()
+                    .contentType(MediaType.IMAGE_JPEG)
+                    .body(resource);
+        } catch (Exception e) {
+            throw new RuntimeException("Error loading image: " + e.getMessage());
+        }
+    }
 
     
 }
