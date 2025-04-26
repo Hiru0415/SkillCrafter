@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -34,9 +35,12 @@ public class NotificationController {
             return ResponseEntity.ok("Notification marked as read");
         }).orElse(ResponseEntity.notFound().build());
     }
-
-<<<<<<< Updated upstream
-   
-=======
->>>>>>> Stashed changes
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteNotification(@PathVariable String id) {
+        if (notificationRepository.existsById(id)) {
+            notificationRepository.deleteById(id);
+            return ResponseEntity.ok("Notification deleted");
+        }
+        return ResponseEntity.notFound().build();
+    }
 }
