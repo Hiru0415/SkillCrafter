@@ -69,10 +69,7 @@ public class AchievementsController {
                 }).orElseThrow(() -> new AchievementsNotFoundException(id));
     }
 
-    @DeleteMapping("/achievements/{id}")
-    public void delete(@PathVariable String id) {
-        achievementsRepository.deleteById(id);
-    }
+    
 
     
 }
