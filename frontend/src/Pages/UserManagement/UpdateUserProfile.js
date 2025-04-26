@@ -208,7 +208,7 @@ function UpdateUserProfile() {
                   onChange={handleProfilePictureChange}
                 />
               </div>
-              <button type="submit" className="Auth_button">Update</button>
+              <button type="submit" className="Auth_button">Updates</button>
             </form>
           </div>
         </div>
