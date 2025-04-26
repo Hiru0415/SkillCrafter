@@ -151,7 +151,7 @@ function AddAchievements() {
             </div>
 
             <button type="submit" className="submit-button">
-              Share Achievement
+              Share Achievements
             </button>
           </form>
         </div>
