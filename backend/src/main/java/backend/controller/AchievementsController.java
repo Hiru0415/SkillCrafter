@@ -86,4 +86,6 @@ public class AchievementsController {
             throw new RuntimeException("Error loading image: " + e.getMessage());
         }
     }
+
+    
 }
