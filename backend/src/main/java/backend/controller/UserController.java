@@ -264,16 +264,5 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Map.of("message", "Email and code are required."));
         }
 
-        try {
-            SimpleMailMessage message = new SimpleMailMessage();
-            message.setTo(email);
-            message.setSubject("Your Verification Code");
-            message.setText("Your verification code is: " + code);
-            mailSender.send(message);
-
-            return ResponseEntity.ok(Map.of("message", "Verification code sent successfully."));
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(Map.of("message", "Failed to send verification code."));
-        }
-    }
+       
 }
